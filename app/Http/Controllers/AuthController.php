@@ -7,15 +7,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Services\UserService;
 use Exception;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
 {
-    public function __construct()
+    public function __construct(protected UserService $userService)
     {
+        $this->userService = $userService;
         $this->middleware('auth:api', ['except' => ['login', 'register']]);
     }
 
@@ -65,6 +68,21 @@ class AuthController extends Controller
             ]);
         } catch(Exception $e) {
             throw new Exception('Houve algo de errado, por favor, contate o suporte!');
+        }
+    }
+
+    public function update(UserRequest $request, $id)
+    {
+        try {
+            $this->userService->update($request->validated(), $id);
+
+            return response()->json([
+                'updated' => true
+            ]);
+        } catch (ModelNotFoundException $e) {
+            //TO DO
+        } catch (Exception $e) {
+            //TO DO
         }
     }
 
