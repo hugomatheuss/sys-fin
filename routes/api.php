@@ -27,6 +27,7 @@ Route::group([
     Route::post('/refresh', [AuthController::class, 'refresh']);
     Route::get('/user-profile', [AuthController::class, 'userProfile']);
     Route::put('/user-profile/edit/{user}', [AuthController::class, 'update']);
+    Route::put('/user-profile/edit-password/{user}', [AuthController::class, 'updatePassword']);
 
     Route::get('/contas', [ContaController::class, 'index']);
     Route::post('/conta', [ContaController::class, 'store']);

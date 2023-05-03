@@ -71,10 +71,10 @@ class AuthController extends Controller
         }
     }
 
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
         try {
-            $this->userService->update($request->validated(), $id);
+            $this->userService->update($request->all(), $id);
 
             return response()->json([
                 'updated' => true
@@ -82,6 +82,21 @@ class AuthController extends Controller
         } catch (ModelNotFoundException $e) {
             //TO DO
         } catch (Exception $e) {
+            //TO DO
+        }
+    }
+
+    public function updatePassword(Request $request, $id)
+    {
+        try {
+            User::whereId($id)->update([
+                'password' => Hash::make($request->password)
+            ]);
+
+            return response()->json([
+                'password_updated' => true
+            ]);
+        } catch(Exception $e) {
             //TO DO
         }
     }
