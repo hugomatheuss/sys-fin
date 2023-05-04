@@ -49,11 +49,7 @@ class AuthController extends Controller
         try {
             $data = $request->validated();
 
-            $user = User::create([
-                'name' => $data['name'],
-                'email' => $data['email'],
-                'password' => Hash::make($data['password']),
-            ]);
+            $user = $this->userService->create($data);
 
             $token = Auth::login($user);
             
