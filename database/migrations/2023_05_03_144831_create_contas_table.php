@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('tipo');
             $table->string('numeroDocumento')->nullable();
-            $table->string('dataPagamento')->nullable();
-            $table->string('dataVencimento');
+            $table->date('dataPagamento')->nullable();
+            $table->date('dataVencimento');
             $table->timestamps();
         });
     }

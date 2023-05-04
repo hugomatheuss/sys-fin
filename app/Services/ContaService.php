@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Models\Conta;
 use App\Repositories\ContaRepository;
+use Illuminate\Database\Eloquent\Collection;
 
 class ContaService {
 
@@ -13,27 +15,27 @@ class ContaService {
         $this->repository = $contaRepository;
     }
 
-    public function getAll()
+    public function getAll(): Collection
     {
         return $this->repository->getAll();
     }
 
-    public function getOne(string $id)
+    public function getOne(string $id): Conta
     {
         return $this->repository->getOne($id);
     }
 
-    public function create(array $data)
+    public function create(array $data): Conta
     {
         return $this->repository->create($data);
     }
 
-    public function update(array $data, string $id)
+    public function update(array $data, string $id): bool
     {
         return $this->repository->update($data, $id);
     }
 
-    public function delete(string $id)
+    public function delete(string $id): bool
     {
         return $this->repository->delete($id);
     }

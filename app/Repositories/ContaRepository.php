@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Conta;
+use Illuminate\Database\Eloquent\Collection;
 
 class ContaRepository {
     
@@ -13,32 +14,30 @@ class ContaRepository {
         $this->entity = $conta;
     }
 
-    public function getAll()
+    public function getAll(): Collection
     {
         return $this->entity->all();
     }
 
-    public function getOne(string $id)
+    public function getOne(string $id): Conta
     {
         return $this->entity->findOrFail($id);
     }
 
-    public function create(array $data)
+    public function create(array $data): Conta
     {
         return $this->entity->create($data);
     }
 
-    public function update(array $data, string $id)
+    public function update(array $data, string $id): bool
     {
         $this->entity = $this->getOne($id);
-
         return $this->entity->update($data);
     }
 
-    public function delete(string $id)
+    public function delete(string $id): bool
     {
         $this->entity = $this->getOne($id);
-
         return $this->entity->delete();
     }
 }
