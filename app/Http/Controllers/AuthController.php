@@ -89,9 +89,7 @@ class AuthController extends Controller
     public function updatePassword(Request $request, $id)
     {
         try {
-            User::whereId($id)->update([
-                'password' => Hash::make($request->password)
-            ]);
+            $this->userService->updatePassword($request->password, $id);
 
             return response()->json([
                 'password_updated' => true
