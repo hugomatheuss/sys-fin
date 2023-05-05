@@ -25,7 +25,7 @@ class ContaController extends Controller
     public function store(ContaRequest $request)
     {
         try {
-            $data = $this->contaService->create($request->validated());
+            $data = $this->contaService->create($request->validated(), auth()->user());
             return new ContaResource($data);
         } catch (Exception $e) {
             //TO DO
