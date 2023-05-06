@@ -15,14 +15,14 @@ class ContaRepository {
         $this->entity = $conta;
     }
 
-    public function getAll(): Collection
+    public function getAll(User $user): ?Collection
     {
-        return $this->entity->all();
+        return $user->contas()->get();
     }
 
-    public function getOne(string $id): Conta
+    public function getOne(string $id, $user): ?Conta
     {
-        return $this->entity->findOrFail($id);
+        return $user->contas()->find($id);
     }
 
     public function create(array $data, User $user): Conta
@@ -30,15 +30,21 @@ class ContaRepository {
         return $user->contas()->create($data);
     }
 
-    public function update(array $data, string $id): bool
+    public function update(array $data, string $id, User $user): bool
     {
-        $this->entity = $this->getOne($id);
+        $this->entity = $this->getOne($id, $user);
+        if (is_null($this->entity)) {
+            return false;
+        }
         return $this->entity->update($data);
     }
 
-    public function delete(string $id): bool
+    public function delete(string $id, User $user): bool
     {
-        $this->entity = $this->getOne($id);
+        $this->entity = $this->getOne($id, $user);
+        if (is_null($this->entity)) {
+            return false;
+        }
         return $this->entity->delete();
     }
 }

@@ -16,14 +16,14 @@ class ContaService {
         $this->repository = $contaRepository;
     }
 
-    public function getAll(): Collection
+    public function getAll(User $user): Collection
     {
-        return $this->repository->getAll();
+        return $this->repository->getAll($user);
     }
 
-    public function getOne(string $id): Conta
+    public function getOne(string $id, User $user): ?Conta
     {
-        return $this->repository->getOne($id);
+        return $this->repository->getOne($id, $user);
     }
 
     public function create(array $data, User $user): Conta
@@ -31,13 +31,13 @@ class ContaService {
         return $this->repository->create($data, $user);
     }
 
-    public function update(array $data, string $id): bool
+    public function update(array $data, string $id, User $user): bool
     {
-        return $this->repository->update($data, $id);
+        return $this->repository->update($data, $id, $user);
     }
 
-    public function delete(string $id): bool
+    public function delete(string $id, User $user): bool
     {
-        return $this->repository->delete($id);
+        return $this->repository->delete($id, $user);
     }
 }
