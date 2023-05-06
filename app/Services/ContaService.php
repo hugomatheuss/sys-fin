@@ -26,6 +26,11 @@ class ContaService {
         return $this->repository->getOne($id, $user);
     }
 
+    public function search(array $fields, User $user): ?Collection
+    {
+        return $this->repository->search($fields, $user);
+    }
+
     public function create(array $data, User $user): Conta
     {
         return $this->repository->create($data, $user);

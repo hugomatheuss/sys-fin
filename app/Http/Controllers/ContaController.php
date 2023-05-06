@@ -7,6 +7,7 @@ use App\Http\Resources\ContaResource;
 use App\Services\ContaService;
 use Exception;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Http\Request;
 
 class ContaController extends Controller
 {
@@ -29,7 +30,6 @@ class ContaController extends Controller
             return ContaResource::collection($contas);
         } catch (Exception $e) {
             //TO DO
-            dd($e);
         }
     }
 
@@ -46,21 +46,31 @@ class ContaController extends Controller
     public function show($id)
     {
         try {
-            $data = $this->contaService->getOne($id, $this->user);
+            $conta = $this->contaService->getOne($id, $this->user);
 
-            if (is_null($data)) {
+            if (is_null($conta)) {
                 throw new Exception("Esta conta não existe.");
             }
 
-            return new ContaResource($data);
+            return new ContaResource($conta);
         } catch (Exception $e) {
             //TO DO
         }
     }
 
-    public function filterConta($id)
+    public function buscar(Request $request)
     {
+        try {
+            $contas = $this->contaService->search($request->all(), $this->user);
 
+            if (is_null($contas)) {
+                throw new Exception(("A busca não retornou contas."));
+            }
+
+            return new ContaResource($contas);
+        } catch (Exception $e) {
+            //TO DO
+        }
     }
 
     public function update(ContaRequest $request, $id)

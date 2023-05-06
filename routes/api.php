@@ -32,6 +32,7 @@ Route::group([
     Route::get('/contas', [ContaController::class, 'index']);
     Route::post('/conta', [ContaController::class, 'store']);
     Route::get('/contas/{conta}', [ContaController::class, 'show']);
+    Route::post('/contas/buscar', [ContaController::class, 'buscar']);
     Route::put('/contas/{conta}', [ContaController::class, 'update']);
     Route::delete('/contas/{conta}', [ContaController::class, 'destroy']);
 });
