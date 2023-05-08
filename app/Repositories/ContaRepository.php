@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Conta;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 
 class ContaRepository {
@@ -49,6 +50,14 @@ class ContaRepository {
 
         if (!is_null($dataInicial) && !is_null($dataFinal)) {
             $contas = $contas->whereBetween('created_at', [$dataInicial, $dataFinal]);
+        }
+        
+        if (!is_null($dataInicial) && is_null($dataFinal)) {
+            $contas = $contas->where('created_at', '>=', $dataInicial);
+        }
+
+        if (is_null($dataInicial) && !is_null($dataFinal)) {
+            $contas = $contas->where('created_at', '<=', $dataFinal);
         }
         
         return $contas->get();
