@@ -14,11 +14,11 @@ const routes: Routes = [
         component: ContaListComponent
       },
       {
-        path: 'form-Conta',
+        path: 'form-conta',
         component: ContaFormComponent
       },
       {
-        path: 'form-Conta/:id',
+        path: 'form-conta/:id',
         component: ContaFormComponent
       }
     ]

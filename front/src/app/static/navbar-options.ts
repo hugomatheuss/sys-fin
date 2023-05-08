@@ -15,6 +15,13 @@ export const NavbarOptions = [
     },
     {
         icon: '',
+        alt: 'Relatórios',
+        label: 'RELATÓRIOS',
+        router: '/contas/relatorios',
+        needLogin: true
+    },
+    {
+        icon: '',
         alt: 'Contatos',
         label: 'CONTATO',
         router: '/contato',

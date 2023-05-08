@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
   }
 
   goToForm(id?: number): void {
-    this.router.navigate([`conta/form-pessoa/${id?? ''}`]);
+    this.router.navigate([`contas/form-conta/${id?? ''}`]);
   }
 
   /* getCategoriaLabel(categoria: string): string {
