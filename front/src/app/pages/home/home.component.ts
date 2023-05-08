@@ -8,7 +8,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HomeComponent implements OnInit {
 
-  titleCard: string = 'Desafio Athenas Online';
+  titleCard: string = 'Bem vindo!';
 
   constructor(private loginService: LoginService) { }
 
