@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="card">
+        <h1>Entrar</h1>
+        <form [formGroup]="form">
+            <div class="mb-3">
+                <span for="email">Email:</span>
+                <input type="text" formControlName="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <span for="password">Senha:</span>
+                <input type="password" formControlName="password" class="form-control" id="password">
+            </div>
+            <div class="button-bar">
+                <button (click)="entrar()" class="btn btn-primary">Entrar</button>
+            </div>
+        </form>
+    </div>
+</div>

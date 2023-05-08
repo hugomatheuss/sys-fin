@@ -1,0 +1,46 @@
+<app-card [titleCard]="title">
+    <form [formGroup]="form">
+        <div class="container__form">
+            <div class="form-control">
+                <label>Fornecedor:</label>
+                <input formControlName="fornecedor" type="text" max="30"/>
+            </div>
+            <div class="form-control">
+                <label>Valor:</label>
+                <input formControlName="valor" type="text"/>
+            </div>
+            <div class="form-control">
+                <label>Descrição:</label>
+                <input formControlName="descricao" type="text"/>
+            </div>
+            <div class="form-control">
+                <label>Status:</label>
+                <input formControlName="status" type=""/>
+            </div>
+            <div class="form-control">
+                <label>Tipo:</label>
+                <select formControlName="yipo">
+                    <option>Selecione</option>
+                    <option [value]="1">Operacional</option>
+                    <option [value]="2">Não Operacional</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label>Número de Documento:</label>
+                <input formControlName="numeroDocumento" type="text"/>
+            </div>
+            <div class="form-control">
+                <label>Data do Pagamento:</label>
+                <input formControlName="dataPagamento" type=""/>
+            </div>
+            <div class="form-control">
+                <label>Data do Vencimento:</label>
+                <input formControlName="dataVencimento" type=""/>
+            </div>
+        </div>
+        <div class="mt-5">
+            <button (click)="salvaConta()" class="btn primary">Adicionar</button>
+            <button (click)="goBack()" class="btn secondary">Cancelar</button>
+        </div>
+    </form>
+</app-card>

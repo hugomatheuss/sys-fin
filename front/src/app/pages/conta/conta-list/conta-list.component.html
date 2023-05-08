@@ -1,0 +1,6 @@
+<app-card [titleCard]="title">
+    <div class="mb-3">
+        <button (click)="goToForm()" class="btn primary">Adicionar Contas</button>
+    </div>
+    <app-list (removeConta)="removeConta($event)" [listContas]="listContas"></app-list>
+</app-card>

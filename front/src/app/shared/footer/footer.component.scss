@@ -1,0 +1,29 @@
+.container__footer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color:  #153B50;
+    height: 40px;
+    font-size: 19px;
+    color: #fff;
+    font-weight: bold;
+
+    &__right {
+
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+            color: #16F4D0;
+            transition: 0.6s;
+            cursor: pointer;
+
+        }
+    }
+
+    &__left {
+        cursor: pointer;
+    }
+}

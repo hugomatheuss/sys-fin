@@ -1,0 +1,34 @@
+<div class="container__list">
+    <table>
+        <thead>
+            <th>Fornecedor</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+            <th>Status</th>
+            <th>Tipo</th>
+            <th>Número do Documento</th>
+            <th>Data de Pagamento</th>
+            <th>Data de Vencimento</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let conta of listContas">
+                <td>{{ conta?.fornecedor }}</td>
+                <td>{{ conta?.valor }}</td>
+                <td>{{ conta?.descricao }}</td>
+                <td>{{ conta?.status }}</td>
+                <td>{{ conta?.tipo }}</td>
+                <td>{{ conta?.numeroDocumento }}</td>
+                <td>{{ conta?.dataPagamento }}</td>
+                <td>{{ conta?.dataVencimento }}</td>
+                <td>
+                    <button (click)="goToForm(conta.id)" class="btn primary">
+                        Editar
+                    </button>
+                     <button (click)="remove(conta.id)" class="btn danger">
+                        Excluir
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

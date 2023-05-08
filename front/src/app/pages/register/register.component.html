@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="card">
+        <h1>Cadastrar</h1>
+        <form [formGroup]="form">
+            <div class="mb-3">
+                <span for="nome">Nome:</span>
+                <input type="text" formControlName="name" class="form-control" id="nome">
+            </div>
+            <div class="mb-3">
+                <span for="email">Email:</span>
+                <input type="text" formControlName="email" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+                <span for="senha">Senha:</span>
+                <input type="password" formControlName="password" class="form-control" id="senha">
+            </div>
+            <div class="button-bar">
+                <button (click)="salvar()" class="btn btn-primary">Cadastrar</button>
+                <a href="/login" class="btn btn-danger">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
