@@ -30,7 +30,7 @@ Route::group([
     Route::put('/user-profile/edit-password/{user}', [AuthController::class, 'updatePassword']);
 
     Route::get('/contas', [ContaController::class, 'index']);
-    Route::post('/conta', [ContaController::class, 'store']);
+    Route::post('/contas', [ContaController::class, 'store']);
     Route::get('/contas/{conta}', [ContaController::class, 'show']);
     Route::post('/contas/buscar', [ContaController::class, 'buscar']);
     Route::put('/contas/{conta}', [ContaController::class, 'update']);
