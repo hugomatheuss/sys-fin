@@ -9,7 +9,7 @@ import { StorageUtil } from '../utils/storage.util';
     providedIn: 'root'
 })
 export class ContaService {
-    private base_url = 'http://localhost:8000/api/auth';
+    private base_url = 'https://sys-fin.herokuapp.com/api/auth';
     private options: any;
 
     constructor(public http: HttpClient) {
